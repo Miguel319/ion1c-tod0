@@ -9,9 +9,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-list style="margin-bottom: 20px;">
+  <ion-list style="margin-top:15px;margin-bottom: 20px;">
     <ion-item color="light">
-      <ion-label position="floating">Nuevo item</ion-label>
+      <ion-label position="floating">Nueva subtarea</ion-label>
       <ion-input
         type="text"
         [(ngModel)]="nombreItem"
@@ -20,20 +20,31 @@
     </ion-item>
   </ion-list>
 
-  <ion-list>
+  <ion-list *ngIf="lista.elems.length !== 0">
     <ion-list-header>
-      <ion-label>Subtareas</ion-label>
+      <ion-label><b>Subtareas</b></ion-label>
     </ion-list-header>
 
-    <ion-item class="animated fadeInDown" *ngFor="let elem of lista.elems">
-      <ion-checkbox
-        [(ngModel)]="elem.completado"
-        color="dark"
-        slot="start"
-        (ionChange)="cambioElem()"
-      ></ion-checkbox>
-      <ion-label>{{ elem.desc }}</ion-label>
-    </ion-item>
+    <ion-item-sliding
+      class="animated fadeInDown"
+      *ngFor="let elem of lista.elems; let i = index"
+    >
+      <ion-item>
+        <ion-checkbox
+          [(ngModel)]="elem.completado"
+          color="dark"
+          slot="start"
+          (ionChange)="cambioElem()"
+        ></ion-checkbox>
+        <ion-label>{{ elem.desc }}</ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="borrar(i)" color="danger">
+          <ion-icon name="close" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
 

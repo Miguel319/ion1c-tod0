@@ -8,8 +8,13 @@
 
 <ion-content>
   <ion-list color="dark">
-    <ion-item *ngFor="let elem of lista" detail>
+    <ion-item
+      *ngFor="let elem of lista"
+      detail
+      (click)="listaSeleccionada(elem)"
+    >
       <ion-label>{{ elem.titulo }}</ion-label>
+      <ion-note slot="end">{{ elem.elems.length }}</ion-note>
     </ion-item>
   </ion-list>
 

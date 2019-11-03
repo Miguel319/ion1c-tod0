@@ -13,7 +13,9 @@ export class AgregarPage implements OnInit {
   lista: Lista;
   nombreItem = "";
 
-  constructor(private todoS: TodosService, private aRoute: ActivatedRoute) {}
+  constructor(
+    private todoS: TodosService,
+    private aRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.obtenerLista();
@@ -49,6 +51,10 @@ export class AgregarPage implements OnInit {
     this.todoS.guardarStorage();
 
     console.log(this.todoS.obtenerListas());
-    
+  }
+
+  borrar(i: number) {
+    this.lista.elems.splice(i, 1);
+    this.todoS.guardarStorage();
   }
 }

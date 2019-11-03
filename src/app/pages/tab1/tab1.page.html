@@ -1,9 +1,15 @@
 <ion-header no-border>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>
       Pendientes
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<p style="text-align: center;">Hello World</p>
-<ion-content> </ion-content>
+
+<ion-content>
+  <ion-list color="dark">
+    <ion-item *ngFor="let elem of lista" detail >
+      <ion-label>{{ elem.titulo }}</ion-label>
+  </ion-item>
+  </ion-list>
+</ion-content>

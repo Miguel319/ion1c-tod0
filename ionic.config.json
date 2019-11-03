@@ -1,5 +1,7 @@
 {
   "name": "ion1c-tod0",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

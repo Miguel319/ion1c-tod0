@@ -1,0 +1,40 @@
+<ion-header no-border>
+  <ion-toolbar color="dark">
+    <ion-buttons>
+      <ion-back-button defaultHref="/" color="medium"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title ion-text-center>{{ lista.titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list style="margin-bottom: 20px;">
+    <ion-item color="light">
+      <ion-label position="floating">Nuevo item</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="nombreItem"
+        (keyup.enter)="agregarElem()"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Subtareas</ion-label>
+    </ion-list-header>
+
+    <ion-item class="animated fadeInDown" *ngFor="let elem of lista.elems">
+      <ion-checkbox
+        [(ngModel)]="elem.completado"
+        color="dark"
+        slot="start"
+        (ionChange)="cambioElem()"
+      ></ion-checkbox>
+      <ion-label>{{ elem.desc }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content> </ion-content>

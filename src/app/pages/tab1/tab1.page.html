@@ -8,8 +8,14 @@
 
 <ion-content>
   <ion-list color="dark">
-    <ion-item *ngFor="let elem of lista" detail >
+    <ion-item *ngFor="let elem of lista" detail>
       <ion-label>{{ elem.titulo }}</ion-label>
-  </ion-item>
+    </ion-item>
   </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="medium" (click)="agregarLista()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -10,14 +10,14 @@ import { AlertController } from "@ionic/angular";
   styleUrls: ["tab1.page.scss"]
 })
 export class Tab1Page {
-  lista: Lista[];
+  listas: Lista[];
 
   constructor(
     private todoS: TodosService,
     private router: Router,
     private alertCtrl: AlertController
   ) {
-    this.lista = todoS.obtenerListas();
+    this.listas = todoS.obtenerListas().filter(v => !v.terminada);
   }
 
   async agregarLista() {
@@ -49,9 +49,5 @@ export class Tab1Page {
     });
 
     await alert.present();
-  }
-
-  listaSeleccionada(lista: Lista) {
-    this.router.navigateByUrl(`/tabs/tab1/agregar/${lista.id}`);
   }
 }

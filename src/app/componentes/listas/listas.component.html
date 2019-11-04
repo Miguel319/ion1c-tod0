@@ -1,0 +1,14 @@
+<ion-list color="dark">
+  <ion-item-sliding *ngFor="let elem of obtenerListas()">
+    <ion-item detail (click)="listaSeleccionada(elem)">
+      <ion-label>{{ elem.titulo }}</ion-label>
+      <ion-note slot="end">{{ elem.elems.length }}</ion-note>
+    </ion-item>
+
+    <ion-item-options>
+      <ion-item-option (click)="eliminar(elem)" color="danger">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>

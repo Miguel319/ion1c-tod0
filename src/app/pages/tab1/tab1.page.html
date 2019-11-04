@@ -7,16 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list color="dark">
-    <ion-item
-      *ngFor="let elem of lista"
-      detail
-      (click)="listaSeleccionada(elem)"
-    >
-      <ion-label>{{ elem.titulo }}</ion-label>
-      <ion-note slot="end">{{ elem.elems.length }}</ion-note>
-    </ion-item>
-  </ion-list>
+  <app-listas [completada]="false"></app-listas>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="medium" (click)="agregarLista()">

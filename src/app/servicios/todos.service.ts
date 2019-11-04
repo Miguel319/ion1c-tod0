@@ -35,4 +35,8 @@ export class TodosService {
     if (localStorage.getItem("lista"))
       this.listas = JSON.parse(localStorage.getItem("lista"));
   }
+
+  eliminarLista(elem: Lista) {
+    this.listas = this.listas.filter(l => l.id !== elem.id);
+  }
 }

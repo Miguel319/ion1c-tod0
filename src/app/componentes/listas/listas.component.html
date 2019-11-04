@@ -5,6 +5,12 @@
       <ion-note slot="end">{{ elem.elems.length }}</ion-note>
     </ion-item>
 
+    <ion-item-options side="start">
+      <ion-item-option (click)="editarTitulo(elem)">
+        <ion-icon name="create" slot="icon-only"> </ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
     <ion-item-options>
       <ion-item-option (click)="eliminar(elem)" color="danger">
         <ion-icon slot="icon-only" name="close"></ion-icon>
